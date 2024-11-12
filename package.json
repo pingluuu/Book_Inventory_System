@@ -2,8 +2,10 @@
   "name": "book_inventory_system",
   "version": "1.0.0",
   "description": "This is a book inventory system.",
-  "main": "script.js",
+  "main": "backend/server.js",
   "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,5 +14,8 @@
   "dependencies": {
     "express": "^4.21.1",
     "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
