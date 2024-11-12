@@ -64,6 +64,17 @@ app.post('/api/inventory', async (req, res) => {
     }
 });
 
+// Route to get all books
+app.get('/api/inventory', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM Inventory');
+        res.json(result.rows);
+    } catch (error) {
+        console.error("Error fetching all books:", error);
+        res.status(500).json({ error: "Error fetching all books" });
+    }
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
