@@ -82,24 +82,6 @@ async function filterBooks() {
     }
 }
 
-// Function to display the filtered books in the results table
-function displayFilteredBooks(books) {
-    const tableBody = document.querySelector('#resultsTable tbody');
-    tableBody.innerHTML = ''; // Clear any previous results
-
-    books.forEach(book => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${book.title}</td>
-            <td>${book.author}</td>
-            <td>${book.genre}</td>
-            <td>${book.publication_date}</td>
-            <td>${book.isbn}</td>
-        `;
-        tableBody.appendChild(row);
-    });
-}
-
 // Function to reset filters and display all books
 function resetFilters() {
     document.getElementById('filterForm').reset();
@@ -150,12 +132,7 @@ async function exportBooks() {
 document.addEventListener('DOMContentLoaded', () => {
     const bookForm = document.getElementById('bookForm');
     const filterForm = document.getElementById('filterForm');
-
-    // Fetch and display all books on page load if the table exists
     const booksTable = document.getElementById('booksTable');
-    if (booksTable) {
-        fetchBooks();
-    }
 
     if (bookForm) {
         bookForm.addEventListener('submit', addBook);
@@ -168,7 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fetch all books when the page loads
-    fetchBooks();
+    if (booksTable) {
+        fetchBooks();
+    }
 });
 
