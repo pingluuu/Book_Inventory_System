@@ -7,14 +7,41 @@ const PORT = 3000;
 // Middleware to parse JSON data
 app.use(express.json());
 
-// Route to get all books
-app.get('/api/inventory', async (req, res) => {
+// Route to get filtered books
+app.get('/api/inventory/filter', async (req, res) => {
+    const { title, author, genre, publication_date, isbn } = req.query;
+
+    // Build the SQL query with optional filters
+    let query = 'SELECT * FROM Inventory WHERE 1=1'; // 1=1 is a no-op to make adding filters easier
+    const values = [];
+
+    if (title) {
+        query += ' AND LOWER(title) LIKE $' + (values.length + 1);
+        values.push(`%${title.toLowerCase()}%`);
+    }
+    if (author) {
+        query += ' AND LOWER(author) LIKE $' + (values.length + 1);
+        values.push(`%${author.toLowerCase()}%`);
+    }
+    if (genre) {
+        query += ' AND LOWER(genre) LIKE $' + (values.length + 1);
+        values.push(`%${genre.toLowerCase()}%`);
+    }
+    if (publication_date) {
+        query += ' AND publication_date = $' + (values.length + 1);
+        values.push(publication_date);
+    }
+    if (isbn) {
+        query += ' AND isbn = $' + (values.length + 1);
+        values.push(isbn);
+    }
+
     try {
-        const result = await pool.query('SELECT * FROM Inventory');
+        const result = await pool.query(query, values);
         res.json(result.rows);
     } catch (error) {
-        console.error(error.message);
-        res.status(500).send("Server error");
+        console.error("Error filtering books:", error);
+        res.status(500).json({ error: "Error filtering books" });
     }
 });
 
