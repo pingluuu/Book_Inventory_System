@@ -1,11 +1,15 @@
 // server.js
 const express = require('express');
+const path = require('path');         // Import path module
 const pool = require('./db');
 const app = express();
 const PORT = 3000;
 
+// Middleware to parse JSON data
+app.use(express.json());
+
 // Serve static files from the frontend folder
-app.use(express.static(path.join(__dirname, 'frontend')));
+app.use(express.static(path.join(__dirname, '../frontend')));  // Adjust path to the frontend folder
 
 // Route to get filtered books
 app.get('/api/inventory/filter', async (req, res) => {
@@ -55,7 +59,7 @@ app.post('/api/inventory', async (req, res) => {
         );
         res.json(result.rows[0]);
     } catch (error) {
-        console.error(error.message);
+        console.error("Error adding book:", error);
         res.status(500).send("Server error");
     }
 });
