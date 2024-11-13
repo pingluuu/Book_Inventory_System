@@ -54,6 +54,24 @@ async function addBook(event) {
     const pubDate = document.getElementById('pub-date').value;
     const isbn = document.getElementById('isbn').value;
 
+    // Simple validations based on schema
+    if (!title) {
+        alert("Title is required.");
+        return;
+    }
+    if (!author) {
+        alert("Author is required.");
+        return;
+    }
+    if (!isbn) {
+        alert("ISBN is required.");
+        return;
+    }
+    if (!/^\d{13}$/.test(isbn)) { // ISBN validation: 13 digits only
+        alert("ISBN must be a 13-digit number.");
+        return;
+    }
+
     const newBook = { title, author, genre, publication_date: pubDate, isbn };
 
     try {
@@ -65,12 +83,17 @@ async function addBook(event) {
             body: JSON.stringify(newBook)
         });
 
-        if (!response.ok) throw new Error('Error adding book');
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Error adding book');
+        }
 
         //fetchBooks();  // Refresh the book list
         document.getElementById('bookForm').reset();  // Clear the form
+        alert("Book added successfully!");
     } catch (error) {
         console.error("Error adding book:", error);
+        alert("Failed to add book. " + error.message);
     }
 }
 
