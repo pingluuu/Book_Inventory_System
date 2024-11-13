@@ -187,7 +187,7 @@ tr:nth-child(even) {
 #filter-section,
 #results-section,
 #add-book-section {
-    max-width: 600px;         /* Set a maximum width */
+    max-width: 650px;         /* Set a maximum width */
     margin: 0 auto;           /* Center the section horizontally */
     padding: 20px;            /* Add padding for spacing within the section */
     background-color: #f9f9f9; /* Optional: background color for contrast */
