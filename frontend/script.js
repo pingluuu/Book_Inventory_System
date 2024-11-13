@@ -1,6 +1,49 @@
 // Fetch and display all books on page load
 document.addEventListener('DOMContentLoaded', fetchBooks);
 
+// Function to display books in the table
+function displayBooks(books) {
+    const tableBody = document.querySelector('#booksTable tbody');
+    if (!tableBody) {
+        console.error("Error: Table body element not found.");
+        return;
+    }
+
+    tableBody.innerHTML = ''; // Clear existing entries
+
+    books.forEach(book => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${book.entry_id}</td>
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.genre}</td>
+            <td>${book.publication_date}</td>
+            <td>${book.isbn}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+
+// Function to fetch and display all books
+async function fetchBooks() {
+    try {
+        const response = await fetch('http://localhost:3000/api/inventory');
+        if (!response.ok) throw new Error('Error fetching all the books');
+        const books = await response.json();
+        // Ensure #booksTable exists before calling displayBooks
+        if (document.querySelector('#booksTable')) {
+            displayBooks(books); // Display filtered results
+        } else {
+            console.error("Error: Table element #booksTable not found on this page.");
+        }
+    } catch (error) {
+        console.error("Error fetching books:", error);
+    }
+}
+
+
 // Function to add a book
 async function addBook(event) {
     event.preventDefault();
@@ -24,43 +67,13 @@ async function addBook(event) {
 
         if (!response.ok) throw new Error('Error adding book');
 
-        fetchBooks();  // Refresh the book list
+        //fetchBooks();  // Refresh the book list
         document.getElementById('bookForm').reset();  // Clear the form
     } catch (error) {
         console.error("Error adding book:", error);
     }
 }
 
-// Function to fetch and display all books
-async function fetchBooks() {
-    try {
-        const response = await fetch('http://localhost:3000/api/inventory');
-        if (!response.ok) throw new Error('Error fetching books');
-        const books = await response.json();
-        displayBooks(books);
-    } catch (error) {
-        console.error("Error fetching books:", error);
-    }
-}
-
-// Function to display books in the table
-function displayBooks(books) {
-    const tableBody = document.querySelector('#booksTable tbody');
-    tableBody.innerHTML = ''; // Clear existing entries
-
-    books.forEach(book => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${book.entry_id}</td>
-            <td>${book.title}</td>
-            <td>${book.author}</td>
-            <td>${book.genre}</td>
-            <td>${book.publication_date}</td>
-            <td>${book.isbn}</td>
-        `;
-        tableBody.appendChild(row);
-    });
-}
 
 // Function to filter books based on form criteria
 async function filterBooks() {
@@ -71,12 +84,16 @@ async function filterBooks() {
     const isbnFilter = document.getElementById('filter-isbn').value;
 
     try {
-        
         // Send filters as query parameters
         const response = await fetch(`http://localhost:3000/api/inventory/filter?title=${titleFilter}&author=${authorFilter}&genre=${genreFilter}&publication_date=${pubDateFilter}&isbn=${isbnFilter}`);
         if (!response.ok) throw new Error('Error fetching filtered books');
         const books = await response.json();
-        displayBooks(books); // Display filtered results
+        // Ensure #booksTable exists before calling displayBooks
+        if (document.querySelector('#booksTable')) {
+            displayBooks(books); // Display filtered results
+        } else {
+            console.error("Error: Table element #booksTable not found on this page.");
+        }
     } catch (error) {
         console.error("Error filtering books:", error);
     }
@@ -89,16 +106,21 @@ function resetFilters() {
     fetchBooks();
 }
 
-// Automatically fetch books when view_books.html is loaded
-if (document.querySelector('#booksTable')) {
-    fetchBooks();
-}
 // Function to export books as CSV
 async function exportBooks() {
     try {
-        const response = await fetch('http://localhost:3000/api/inventory');
+        const response = await fetch('http://localhost:3000/api/inventory', {
+            method: 'GET', // Specifies the GET method (optional as GET is default for fetch)
+        });
         if (!response.ok) throw new Error('Error fetching books for export');
         const books = await response.json();
+
+        // Ensure #booksTable exists before calling displayBooks
+        if (document.querySelector('#booksTable')) {
+            displayBooks(books); // Display filtered results
+        } else {
+            console.error("Error: Table element #booksTable not found on this page.");
+        }
 
         let csvContent = "data:text/csv;charset=utf-8,";
         csvContent += "Entry ID,Title,Author,Genre,Publication Date,ISBN\n"; // CSV headers

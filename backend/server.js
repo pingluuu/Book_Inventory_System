@@ -8,6 +8,9 @@ const PORT = 3000;
 // Middleware to parse JSON data
 app.use(express.json());
 
+const cors = require('cors');
+app.use(cors());
+
 // Serve static files from the frontend folder
 app.use(express.static(path.join(__dirname, '../frontend')));  // Adjust path to the frontend folder
 
@@ -64,16 +67,6 @@ app.post('/api/inventory', async (req, res) => {
     }
 });
 
-// Route to get all books
-app.get('/api/inventory', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM Inventory');
-        res.json(result.rows);
-    } catch (error) {
-        console.error("Error fetching all books:", error);
-        res.status(500).json({ error: "Error fetching all books" });
-    }
-});
 
 // Start the server
 app.listen(PORT, () => {
