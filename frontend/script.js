@@ -88,6 +88,8 @@ async function filterBooks() {
         const response = await fetch(`http://localhost:3000/api/inventory/filter?title=${titleFilter}&author=${authorFilter}&genre=${genreFilter}&publication_date=${pubDateFilter}&isbn=${isbnFilter}`);
         if (!response.ok) throw new Error('Error fetching filtered books');
         const books = await response.json();
+
+        filteredBooks = books; // Update filteredBooks with current filtered data
         // Ensure #booksTable exists before calling displayBooks
         if (document.querySelector('#booksTable')) {
             displayBooks(books); // Display filtered results
@@ -106,49 +108,50 @@ function resetFilters() {
     fetchBooks();
 }
 
-// Function to export books as CSV
-async function exportBooks() {
-    try {
-        const response = await fetch('http://localhost:3000/api/inventory', {
-            method: 'GET', // Specifies the GET method (optional as GET is default for fetch)
-        });
-        if (!response.ok) throw new Error('Error fetching books for export');
-        const books = await response.json();
+// Example filtered book list (replace this with your actual data)
+let filteredBooks = []; // Populate this with your filtered data
 
-        // Ensure #booksTable exists before calling displayBooks
-        if (document.querySelector('#booksTable')) {
-            displayBooks(books); // Display filtered results
-        } else {
-            console.error("Error: Table element #booksTable not found on this page.");
-        }
+// Function to export filtered data to CSV
+function exportToCSV() {
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "Entry ID,Title,Author,Genre,Publication Date,ISBN\n"; // CSV headers
 
-        let csvContent = "data:text/csv;charset=utf-8,";
-        csvContent += "Entry ID,Title,Author,Genre,Publication Date,ISBN\n"; // CSV headers
+    filteredBooks.forEach(book => {
+        const row = [
+            book.entry_id,
+            book.title,
+            book.author,
+            book.genre,
+            book.publication_date,
+            book.isbn
+        ].join(",");
+        csvContent += row + "\n";
+    });
 
-        books.forEach(book => {
-            const row = [
-                book.entry_id,
-                book.title,
-                book.author,
-                book.genre,
-                book.publication_date,
-                book.isbn
-            ].join(",");
-            csvContent += row + "\n";
-        });
-
-        // Create a link element to trigger download
-        const encodedUri = encodeURI(csvContent);
-        const link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "books_inventory.csv");
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link); // Clean up the link element
-    } catch (error) {
-        console.error("Error exporting books:", error);
-    }
+    // Create a link element to trigger the download
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "filtered_books_inventory.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up
 }
+
+// Function to export filtered data to JSON
+function exportToJSON() {
+    const jsonContent = JSON.stringify(filteredBooks, null, 2); // Pretty-print JSON
+    const blob = new Blob([jsonContent], { type: "application/json" });
+
+    // Create a link element to trigger the download
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "filtered_books_inventory.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up
+}
+
 
 // Add event listeners
 document.addEventListener('DOMContentLoaded', () => {
