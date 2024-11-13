@@ -16,10 +16,31 @@ body {
 
 /* Main page background and layout */
 body.main-page {
-    background-image: url('library-background.jpg'); /* Replace with your library image */
+    background-image: url('images/cherry blossom.jpg'); /* Replace with your library image */
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
+
+/* Style for the add page background */
+body.add-page {
+    background-image: url('images/trinity college.jpg'); /* Update path if necessary */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Style for the filter page background */
+body.filter-page {
+    background-image: url('images/trinity college.jpg'); /* Update path if necessary */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 
 .main-container {
     text-align: center;
@@ -161,3 +182,36 @@ tr:nth-child(even) {
 .back-button:hover {
     background-color: #357ABD;
 }
+
+/* Style for section containers */
+#filter-section,
+#results-section,
+#add-book-section {
+    max-width: 600px;         /* Set a maximum width */
+    margin: 0 auto;           /* Center the section horizontally */
+    padding: 20px;            /* Add padding for spacing within the section */
+    background-color: #f9f9f9; /* Optional: background color for contrast */
+    border-radius: 8px;       /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for a subtle effect */
+}
+
+/* Adjust input and button styling for a cleaner look */
+#filterForm label,
+#filterForm input,
+#filterForm button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.buttons-row-inline {
+    display: flex;
+    gap: 10px;                /* Space between buttons */
+}
+
+#export-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
