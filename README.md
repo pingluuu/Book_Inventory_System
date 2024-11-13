@@ -4,6 +4,10 @@
 
 The Book Inventory System is a web application that enables users to manage a book inventory by adding new books, filtering existing entries based on multiple criteria, and exporting data in CSV or JSON formats. This documentation covers how to set up, use, and maintain the system, along with design decisions and challenges encountered during development.
 
+<p align="center">
+	<img width=100% src="frontend/images/front.png">
+</p>
+
 ## Table of Contents
 - [Setup and Installation](#setup-and-installation)
 - [How to Use the System](#how-to-use-the-system)
