@@ -44,37 +44,37 @@ body.filter-page {
 
 .main-container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8); /* Dark overlay for readability */
+    background-color: rgba(255, 245, 238, 0.8); /* Dark overlay for readability */
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     max-width: 500px;
-    color: white;
+    color: #5D2A2C;
 }
 
 h1 {
-    font-size: 3em;
-    color: #D9776D;
+    font-size: 2.5em;
+    color: #BF4D4D;
 }
 
 p {
-    margin-bottom: 30px;
+    margin: 15px 0 30px;
     font-size: 1.2em;
-    color: #D9776D;
+    color: #BF4D4D;
 }
 
 /* Button styling for navigation */
 .buttons-row {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .nav-button {
-    padding: 15px;
+    padding: 15px 25px;
     font-size: 18px;
-    color: #fff;
-    background-color: #D9776D;
+    color: white;
+    background-color: #BF4D4D;
     border: none;
     text-decoration: none;
     text-align: center;
@@ -83,31 +83,35 @@ p {
 }
 
 .nav-button:hover {
-    background-color: #B86459;
+    background-color: #9B3E3E;
 }
 
 /* Section styling for individual pages */
 section {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     margin: 20px auto;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
     margin-bottom: 15px;
-    color: #D9776D;
+    color: #BF4D4D;
     text-align: center;
-    margin-bottom: 15px;
 }
 
-form,.buttons-row-inline, #export-buttons {
+form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: #5D2A2C; /* Dark reddish-brown */
 }
 
 input[type="text"],
@@ -116,7 +120,7 @@ button {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 input[type="text"],
@@ -124,23 +128,23 @@ input[type="date"] {
     width: 100%;
 }
 
-button .back-button {
-    background-color: #D9776D;
+button {
+    background-color: #BF4D4D;
     color: #fff;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-button:hover, .back-button:hover {
-    background-color: #B86459;
+button:hover {
+    background-color: #9B3E3E;
 }
 
 /* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 th, td {
@@ -150,12 +154,12 @@ th, td {
 }
 
 th {
-    background-color: #D9776D;
+    background-color: #BF4D4D;
     color: white;
 }
 
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #FCECEC;
 }
 
 .buttons-row-inline {
@@ -165,23 +169,21 @@ tr:nth-child(even) {
     margin-top: 10px;
 }
 
-
 .back-button {
     display: inline-block;
-    padding: 12px;
+    padding: 10px 20px;
     font-size: 16px;
     color: white;
-    background-color: #D9776D;
+    background-color: #BF4D4D;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 5px;
     margin-top: 20px;
     transition: background-color 0.3s;
 }
 
 .back-button:hover {
-    background-color: #B86459;
+    background-color: #9B3E3E;
 }
-
 
 /* Style for section containers */
 #filter-section,
@@ -190,7 +192,7 @@ tr:nth-child(even) {
     max-width: 650px;         /* Set a maximum width */
     margin: 0 auto;           /* Center the section horizontally */
     padding: 20px;            /* Add padding for spacing within the section */
-    background-color: #f9f9f9; /* Optional: background color for contrast */
+    background-color: #FFF5F5; /* Optional: background color for contrast */
     border-radius: 8px;       /* Optional: rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for a subtle effect */
 }
@@ -214,4 +216,3 @@ tr:nth-child(even) {
     display: flex;
     gap: 10px;
 }
-
