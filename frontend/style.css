@@ -44,36 +44,37 @@ body.filter-page {
 
 .main-container {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+    background-color: rgba(255, 255, 255, 0.8); /* Dark overlay for readability */
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     max-width: 500px;
     color: white;
 }
 
 h1 {
-    font-size: 2.5em;
-    color: #4a90e2;
+    font-size: 3em;
+    color: #D9776D;
 }
 
 p {
-    margin: 15px 0 30px;
+    margin-bottom: 30px;
     font-size: 1.2em;
+    color: #D9776D;
 }
 
 /* Button styling for navigation */
 .buttons-row {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .nav-button {
-    padding: 15px 25px;
+    padding: 15px;
     font-size: 18px;
-    color: white;
-    background-color: #4a90e2;
+    color: #fff;
+    background-color: #D9776D;
     border: none;
     text-decoration: none;
     text-align: center;
@@ -82,34 +83,31 @@ p {
 }
 
 .nav-button:hover {
-    background-color: #357ABD;
+    background-color: #B86459;
 }
 
 /* Section styling for individual pages */
 section {
     width: 100%;
-    max-width: 800px;
+    max-width: 600px;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
     margin-bottom: 15px;
-    color: #4a90e2;
+    color: #D9776D;
     text-align: center;
+    margin-bottom: 15px;
 }
 
-form {
+form,.buttons-row-inline, #export-buttons {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-label {
-    font-weight: bold;
 }
 
 input[type="text"],
@@ -118,7 +116,7 @@ button {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 input[type="text"],
@@ -126,23 +124,23 @@ input[type="date"] {
     width: 100%;
 }
 
-button {
-    background-color: #4a90e2;
+button .back-button {
+    background-color: #D9776D;
     color: #fff;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #357ABD;
+button:hover, .back-button:hover {
+    background-color: #B86459;
 }
 
 /* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 th, td {
@@ -152,7 +150,7 @@ th, td {
 }
 
 th {
-    background-color: #4a90e2;
+    background-color: #D9776D;
     color: white;
 }
 
@@ -167,21 +165,23 @@ tr:nth-child(even) {
     margin-top: 10px;
 }
 
+
 .back-button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px;
     font-size: 16px;
     color: white;
-    background-color: #4a90e2;
+    background-color: #D9776D;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     margin-top: 20px;
     transition: background-color 0.3s;
 }
 
 .back-button:hover {
-    background-color: #357ABD;
+    background-color: #B86459;
 }
+
 
 /* Style for section containers */
 #filter-section,
