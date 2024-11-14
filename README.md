@@ -71,6 +71,8 @@ The Book Inventory System is a web application that enables users to manage a bo
    npm start
   Access the application by navigating to http://localhost:3000 in your web browser.
 ## How to Use the System
+[Watch the demo on YouTube](https://www.youtube.com/watch?v=avRmB_NjNEY)
+
 ### Adding a Book
 
 1. Navigate to the **Add Book** page.
