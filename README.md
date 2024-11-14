@@ -98,20 +98,20 @@ The Book Inventory System is a web application that enables users to manage a bo
   
 ## Challenges and Solutions
 ### Database Constraints
-- Challenge: Enforcing a unique 13-digit ISBN constraint for valid ISBN number. There will be an option for 10 digits ISBN for future improvement, not implemented here due to time constraint.
-- Solution: A CHECK constraint ensures ISBN is a 13-digit number, while a UNIQUE constraint prevents duplicate entries.
-- Challenge: Users might input different genres with minor differences, causing difficulty to classify.
-- Solution: Implement a menu for genres for users to choose from. If the genre is not listed, there is a "Other" option.
-- Challenge: The book information might not be completed, causing difficulty in identifying the book later.
-- Solution: Make all parameters mandatory, otherwise an alter window will pop up. Users have to enter the complete book information to add the book.
+- Challenge 1: Enforcing a unique 13-digit ISBN constraint for valid ISBN number. There will be an option for 10 digits ISBN for future improvement, not implemented here due to time constraint.
+  - Solution: A CHECK constraint ensures ISBN is a 13-digit number, while a UNIQUE constraint prevents duplicate entries.
+- Challenge 2: Users might input different genres with minor differences, causing difficulty to classify.
+  - Solution: Implement a menu for genres for users to choose from. If the genre is not listed, there is a "Other" option.
+- Challenge 3: The book information might not be completed, causing difficulty in identifying the book later.
+  - Solution: Make all parameters mandatory, otherwise an alter window will pop up. Users have to enter the complete book information to add the book.
 ### UI Responsiveness
-- Challenge: Making the theme consistent.
-- Solution: Making the colour and layout align with the theme of cherry blossom and book, improving visual consistency.
-- Challenge: Making a View book page will cause unnecessary UI, making the navigation repetitive.
-- Solution: Combine the view-all-book function with the filter-book function, where users filter nothing and will return a full list of books. 
+- Challenge 1: Making the theme consistent.
+  - Solution: Making the colour and layout align with the theme of cherry blossom and book, improving visual consistency.
+- Challenge 2: Making a View book page will cause unnecessary UI, making the navigation repetitive.
+  - Solution: Combine the view-all-book function with the filter-book function, where users filter nothing and will return a full list of books. 
 ### Validation of Input Fields
 - Challenge: Preventing invalid data from being submitted.
-- Solution: Implemented both frontend and backend validation, with error messages to guide the user in case of invalid input.
+  - Solution: Implemented both frontend and backend validation, with error messages to guide the user in case of invalid input.
 
 ## Future Improvements
 - Pagination for Filtered Results: To handle large datasets efficiently, pagination could be added to the filtered results table.
