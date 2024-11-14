@@ -1,4 +1,4 @@
-![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+[![GitHub](https://img.shields.io/github/license/pingluuu/Book_Inventory_System)](./LICENSE)
 
 # Book Inventory System
 
