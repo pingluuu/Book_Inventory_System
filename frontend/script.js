@@ -1,6 +1,3 @@
-// Fetch and display all books on page load
-document.addEventListener('DOMContentLoaded', fetchBooks);
-
 // Function to display books in the table
 function displayBooks(books) {
     const tableBody = document.querySelector('#booksTable tbody');
@@ -23,24 +20,6 @@ function displayBooks(books) {
         `;
         tableBody.appendChild(row);
     });
-}
-
-
-// Function to fetch and display all books
-async function fetchBooks() {
-    try {
-        const response = await fetch('http://localhost:3000/api/inventory');
-        if (!response.ok) throw new Error('Error fetching all the books');
-        const books = await response.json();
-        // Ensure #booksTable exists before calling displayBooks
-        if (document.querySelector('#booksTable')) {
-            displayBooks(books); // Display filtered results
-        } else {
-            console.error("Error: Table element #booksTable not found on this page.");
-        }
-    } catch (error) {
-        console.error("Error fetching books:", error);
-    }
 }
 
 
@@ -124,6 +103,7 @@ async function filterBooks() {
     }
 }
 
+
 // Function to reset filters and display all books
 function resetFilters() {
     document.getElementById('filterForm').reset();
@@ -180,7 +160,6 @@ function exportToJSON() {
 document.addEventListener('DOMContentLoaded', () => {
     const bookForm = document.getElementById('bookForm');
     const filterForm = document.getElementById('filterForm');
-    const booksTable = document.getElementById('booksTable');
 
     if (bookForm) {
         bookForm.addEventListener('submit', addBook);
@@ -192,9 +171,4 @@ document.addEventListener('DOMContentLoaded', () => {
             filterBooks();
         });
     }
-
-    if (booksTable) {
-        fetchBooks();
-    }
 });
-
