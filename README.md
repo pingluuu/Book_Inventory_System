@@ -75,16 +75,31 @@ The Book Inventory System is a web application that enables users to manage a bo
 2. Fill in all required fields (Title, Author, Genre, Publication Date, and ISBN).
 3. Click **Add Book** to save the book to the inventory.
 
+   <p align="center">
+	<img width=70% src="frontend/images/add.png">
+</p>
+
 ### Filtering Books
 
 1. Go to the **Filter Books** page.
 2. Enter any desired criteria (e.g., Genre, Author, Publication Date) and click **Filter**.
 3. Filtered results are displayed in a table format below the form.
 
+<div style="display: flex; justify-content: space-between;">
+  <img src="frontend/images/filter1.png" alt="Filter 1" style="width: 48%; height: auto;">
+  <img src="frontend/images/filter2.png" alt="Filter 2" style="width: 48%; height: auto;">
+</div>
+
+
 ### Exporting Data
 
 1. On the **Filter Books** page, you can export filtered results.
 2. Use the **Export as CSV** or **Export as JSON** buttons to download the data in your preferred format.
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="frontend/images/export1.png" alt="Filter 1" style="width: 48%; height: auto;">
+  <img src="frontend/images/export2.png" alt="Filter 2" style="width: 48%; height: auto;">
+</div>
 
 ## Design Decisions
 ### Database Schema
