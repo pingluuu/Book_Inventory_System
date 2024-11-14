@@ -44,7 +44,7 @@ body.filter-page {
 
 .main-container {
     text-align: center;
-    background-color: rgba(255, 245, 238, 0.8); /* Dark overlay for readability */
+    background-color: rgba(255, 255, 255, 0.8); /* Dark overlay for readability */
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -54,13 +54,13 @@ body.filter-page {
 
 h1 {
     font-size: 2.5em;
-    color: #BF4D4D;
+    color: #D9776D;
 }
 
 p {
     margin: 15px 0 30px;
     font-size: 1.2em;
-    color: #BF4D4D;
+    color: #D9776D;
 }
 
 /* Button styling for navigation */
@@ -74,7 +74,7 @@ p {
     padding: 15px 25px;
     font-size: 18px;
     color: white;
-    background-color: #BF4D4D;
+    background-color: #D9776D;
     border: none;
     text-decoration: none;
     text-align: center;
@@ -83,7 +83,7 @@ p {
 }
 
 .nav-button:hover {
-    background-color: #9B3E3E;
+    background-color: #B86459;
 }
 
 /* Section styling for individual pages */
@@ -94,12 +94,12 @@ section {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
     margin-bottom: 15px;
-    color: #BF4D4D;
+    color: #D9776D;
     text-align: center;
 }
 
@@ -129,7 +129,7 @@ input[type="date"] {
 }
 
 button {
-    background-color: #BF4D4D;
+    background-color: #D9776D;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -137,7 +137,7 @@ button {
 }
 
 button:hover {
-    background-color: #9B3E3E;
+    background-color: #B86459;
 }
 
 /* Table styling */
@@ -154,12 +154,13 @@ th, td {
 }
 
 th {
-    background-color: #BF4D4D;
+    background-color: #D9776D;
     color: white;
 }
 
 tr:nth-child(even) {
-    background-color: #FCECEC;
+    background-color: #f9f9f9
+    /* #FCECEC*/;
 }
 
 .buttons-row-inline {
@@ -174,7 +175,7 @@ tr:nth-child(even) {
     padding: 10px 20px;
     font-size: 16px;
     color: white;
-    background-color: #BF4D4D;
+    background-color: #D9776D;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 20px;
@@ -182,7 +183,7 @@ tr:nth-child(even) {
 }
 
 .back-button:hover {
-    background-color: #9B3E3E;
+    background-color: #B86459;
 }
 
 /* Style for section containers */
